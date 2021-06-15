@@ -1,0 +1,64 @@
+<hr class="featurette-divider"  id="ubicanos">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1>Encontranos!</h2><br>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header text-center">
+                  Horarios Nutricionista 
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0 text-center">
+                    <p>Lunes, Miercoles y Viernes de 17hs a 19hs</p>
+                    <footer class="text-center">
+                      {% if nutricionista == True %}
+                        <p class="btn-success">Estamos atendiendo ahora</p>
+                      {% else %}
+                        <p class="btn-danger">Cerrado</p>
+                      {% endif %}
+                    </footer>
+                  </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header text-center">
+                  Horarios Dietetica
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0 text-center">
+                    <p>Lunes a Sabado de 9 a 12 y de 18  a 21 </p>
+                    <footer class="text-center">
+                      {% if dietetica == True %}
+                        <p class="btn-success">Ateniendo</p>
+                      {% else %}
+                        <p class="btn-danger">Cerrado</p>
+                      {% endif %}
+                    </footer>
+                  </blockquote>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row" id="ubicanos">
+      <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header text-center">
+                Ubicacion
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0 text-center">
+                  <p>Encontranos en San Martín 635, Las Palmas Chaco</p>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1674.927016609326!2d-58.67897703966544!3d-27.047972196231246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDAyJzUyLjciUyA1OMKwNDAnNDAuNiJX!5e1!3m2!1ses-419!2sar!4v1623774852855!5m2!1ses-419!2sar" width="100%" height="50%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                  <footer class="blockquote-footer">Realizamos envios a domiciolio! </footer>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

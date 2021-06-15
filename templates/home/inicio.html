@@ -1,0 +1,10 @@
+{% include "base/index.html" %}
+{% block content %}
+{% include "home/carousel.html" %}
+    <div class="container marketing">
+        {% include "home/ubicanos.html" %}
+        {% include "home/nosotros.html" %}
+        {% include "home/motivos.html" %}
+    </div>
+    {% include "base/footer.html" %}
+{% endblock %}
