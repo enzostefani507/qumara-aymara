@@ -12,10 +12,10 @@ def home(request):
 def horario_dieteica():
     actual = timezone.now()
     if actual.strftime("%A") != "Sundary":
-        hora_inicio_mañana = datetime.strptime("09:00:00", "%X").time()
+        hora_inicio_mañana = datetime.strptime("08:00:00", "%X").time()
         hora_fin_mañana = datetime.strptime("12:00:00", "%X").time()
-        hora_inicio_tarde = datetime.strptime("18:00:00", "%X").time()
-        hora_fin_tarde = datetime.strptime("21:00:00", "%X").time()
+        hora_inicio_tarde = datetime.strptime("17:00:00", "%X").time()
+        hora_fin_tarde = datetime.strptime("20:00:00", "%X").time()
         hora_actual = datetime.now().time()
         if hora_actual > hora_inicio_mañana and hora_actual < hora_fin_mañana:
             return True
