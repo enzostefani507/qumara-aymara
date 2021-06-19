@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eptfx^@gly1@ntnclm-)_ff&ht=)ing%$u*)ya3sqb7$oagfk3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['qumara-aymara.herokuapp.com','qumaraaymara.com.ar','*']
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'catalogo',
 ]
 
 MIDDLEWARE = [

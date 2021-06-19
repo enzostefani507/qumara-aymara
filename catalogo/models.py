@@ -19,3 +19,6 @@ class Producto(models.Model):
         blank = False,
         editable = True
     )
+
+    def __str__(self) -> str:
+        return self.nombre
