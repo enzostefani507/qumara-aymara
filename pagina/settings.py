@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eptfx^@gly1@ntnclm-)_ff&ht=)ing%$u*)ya3sqb7$oagfk3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['qumara-aymara.herokuapp.com','qumaraaymara.com.ar','*']
 

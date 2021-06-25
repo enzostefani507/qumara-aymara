@@ -1,13 +1,10 @@
+from home.models import Opinion
+from home.forms import OpinionForm
+from django.forms.forms import Form
 from django.utils import timezone
 from datetime import datetime 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-
-
-def home(request):
-    dietetica_abierto = horario_dieteica()
-    nutricionista_abierto = horario_nutricionista()
-    return render(request,'home/inicio.html',{'titulo':'Qumara Aymara - Inicio','dietetica':dietetica_abierto,'nutricionista':nutricionista_abierto,})
 
 def horario_dieteica():
     actual = timezone.now()
@@ -36,5 +33,28 @@ def horario_nutricionista():
         return hora_actual > hora_inicio_tarde and hora_actual < hora_fin_tarde
     else:
         return False
-        
-        
+
+def home(request):
+    dietetica_abierto = horario_dieteica()
+    nutricionista_abierto = horario_nutricionista()
+    if request.method == 'POST':
+        form = OpinionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            publicacion = True
+        return redirect('home')
+    else:
+        form = OpinionForm()
+    opiniones = sorted(Opinion.objects.all(),key=lambda o:len(o.contenido))
+    return render(
+        request,
+        'home/inicio.html',
+        {
+        'titulo' : 'Qumara Aymara - Inicio',
+        'dietetica' : dietetica_abierto,
+        'nutricionista' : nutricionista_abierto,
+        'form' : form,
+        'opiniones' : opiniones,        
+        }
+    )
+

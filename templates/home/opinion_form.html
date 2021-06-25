@@ -1,0 +1,14 @@
+<div class="container" style="margin: 0;">
+    <div class="row shadow p-2 lg-2 bg-white rounded justify-content-center">
+        <div class="col-lg-4 p-5 text-center">
+            <br><h1>Te invitamos a dejarnos tu reseña!</h1>
+        </div>
+        <div class="col-lg-4 col-lg-4 p-5 text-center">
+            <form method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="abs-center"><button type="submit" class=" btn btn-primary">Guardar</button></div>
+            </form>
+        </div>
+    </div>
+</div>

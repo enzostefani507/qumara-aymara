@@ -109,3 +109,26 @@ body {
   filter: blur(10px);
 }
 
+.linea
+{
+    display: inline-block;
+}
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vh;
+}
+
+.form {
+  width: 500px;
+}
+
+.opinion{
+  background:url("https://www.cenadechile.com/wp-content/uploads/2019/03/Comillas.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size:5em;
+  padding:25px 0 25px 70px;  
+}
