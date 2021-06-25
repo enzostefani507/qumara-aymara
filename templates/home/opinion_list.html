@@ -1,3 +1,4 @@
+{% if opiniones %}
 <div class="row abs-center" >
   {% for comentario in opiniones %}
   <div class="col-lg-6 p-2">   
@@ -15,3 +16,10 @@
   </div>
   {% endfor %}
 </div>
+{% else %}
+  <div class="row abs-center" >
+    <div class="alert alert-danger" role="alert">
+      Todavia no hay comentarios registrados!
+    </div>
+  </div>
+{% endif %}

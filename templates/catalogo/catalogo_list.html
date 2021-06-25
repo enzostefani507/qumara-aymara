@@ -51,9 +51,11 @@
                 </ul>
               </nav>
         {% else %}
-        <h1>Ups! Estamos teniendo problemas para mostrar nuestro catalogo</h1>
-        <br>
-        <p>Vuelve a intentar más tarde</p>
+        <div class="row abs-center" >
+            <div class="alert alert-danger" role="alert">
+              Todavia no hay productos registrados!
+            </div>
+          </div>
         {% endif %}
     </div>
     {% include "base/footer.html" %}
