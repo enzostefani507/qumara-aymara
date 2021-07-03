@@ -8,7 +8,7 @@
                 {% for producto in productos_list %}
                 <div class="col mb-4">
                     <div class="card">
-                        <img src= "{{ producto.imagen }}" class="card-img-top" alt="las palmas chaco dietetica {{ producto.nombre }}" style="max-height: 12rem ;max-width: 100%;align-self: center;">
+                        <img src= "{{ producto.imagen }}" class="card-img-top" alt="las palmas chaco dietetica" style="height:10rem ;width:9rem; align-self: center;">
                         <div class="card-body">
                         <h5 class="card-title">{{ producto.nombre }}</h5>
                         </div>
@@ -51,11 +51,11 @@
                 </ul>
               </nav>
         {% else %}
-        <div class="row abs-center" >
-            <div class="alert alert-danger" role="alert">
+        <div class="row row-cols-1 row-cols-md-12">
+            <div class="alert alert-danger text-center" role="alert">
               Todavia no hay productos registrados!
             </div>
-          </div>
+        </div>
         {% endif %}
     </div>
     {% include "base/footer.html" %}
