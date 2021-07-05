@@ -1,0 +1,12 @@
+
+{% include "base/index.html" %}
+{% block content %}
+    {% if post_list %}
+        <h1>Nustros Posts</h1>
+        {% for producto in post_list %}
+            {{ producto.nombre }}
+        {% endfor %}
+    {% else %}
+        <h1>Todavia no hay posts</h1>
+    {% endif %}
+{% endblock %}

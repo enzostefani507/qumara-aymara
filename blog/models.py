@@ -12,7 +12,10 @@ class Categoria(models.Model):
     )
 
 class Post(models.Model):
-    cateogoria = models.ForeignKey(Categoria)
+    cateogoria = models.ForeignKey(
+        Categoria,
+        on_delete = models.RESTRICT,
+    )
     titulo = models.CharField(
         max_length = 100,
         help_text = "Ingrese el nombre del titulo",
@@ -20,10 +23,10 @@ class Post(models.Model):
         blank = False,
         editable = True
     )
-    fecha_creacion = models.CharField(
+    fecha_creacion = models.DateField(
         default=fecha_actual(),
         null = False,
         blank = False,
-        editable = True
+        editable = True,
     )
     content = models.TextField()
