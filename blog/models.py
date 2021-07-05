@@ -12,12 +12,25 @@ class Categoria(models.Model):
     )
 
 class Post(models.Model):
+    imagen = models.CharField(
+        max_length = 500,
+        null = False,
+        blank = False,
+        editable = True
+    )
     cateogoria = models.ForeignKey(
         Categoria,
         on_delete = models.RESTRICT,
     )
-    titulo = models.CharField(
+    descripcion = models.CharField(
         max_length = 100,
+        help_text = "Indica una breve descripcion del tema",
+        null = False,
+        blank = False,
+        editable = True
+    )
+    titulo = models.CharField(
+        max_length = 50,
         help_text = "Ingrese el nombre del titulo",
         null = False,
         blank = False,
