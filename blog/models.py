@@ -11,6 +11,9 @@ class Categoria(models.Model):
         blank = False,
     )
 
+    def __str__(self) -> str:
+        return self.nombre
+
 class Post(models.Model):
     imagen = models.CharField(
         max_length = 500,        
@@ -32,10 +35,10 @@ class Post(models.Model):
         blank = False,
         editable = True
     )
-    fecha_creacion = models.DateField(
-        default=fecha_actual(),
-        null = False,
-        blank = False,
-        editable = True,
+    
+    fecha_creacion = models.CharField(
+        default = fecha_actual(),
+        max_length=50,
     )
+
     content = models.TextField()
