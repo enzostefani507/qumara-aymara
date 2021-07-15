@@ -1,10 +1,21 @@
 .producto-detalle{
     min-height: 85vh;
+    margin-top: 2.5vh;
     align-items: center;
     text-align: center;
 }
 
 .catalogo-full{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+}
+
+.blog-full{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+}
+
+.posts-full{
     min-height: 85vh;
     margin-top: 2.5vh;
 }

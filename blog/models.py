@@ -5,20 +5,6 @@ from django.utils import timezone
 def fecha_actual():
     return timezone.now().strftime("%d/%m/%Y")
 
-class Comentario(models.Model):
-    nombre = models.CharField(
-        max_length = 50,
-        null = False,
-        blank = False,
-    )
-    mensaje = models.CharField(
-        max_length = 500,
-        null = False,
-        blank = False,
-    )
-    def __str__(self):
-        return self.nombre + str(self.id)
-
 class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(
@@ -60,11 +46,6 @@ class Post(models.Model):
     ingredientes = models.ManyToManyField(
         Producto, 
     )
-
-    comentarios = models.ManyToManyField(
-        Comentario,
-    )
-
     content = models.TextField()
 
 
