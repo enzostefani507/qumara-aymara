@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container" style="margin-top: 30px;">
     <div class="row">
-        <div class="col-md-8 blog-main">
+        <div class="col-md-8 blog-main" >
             <div class="blog-post">
                 <h2 class="blog-post-title">{{ post.titulo }}</h2>
                 <p class="blog-post-meta">{{ post.fecha_creacion }}</p>
@@ -26,36 +26,6 @@
               </ol>
             </div>
         </aside>
-    </div>
-    <div class="row abs-center ">
-        <div class="col-lg-6 ">
-            {% if post.comentarios.all  %}
-                
-                {% for comentario in post.comentarios.all %}
-                    <div class="blog-post">
-                        <h3 class="pb-3 mb-4 border-bottom">
-                            {{ comentario.nombre }}
-                        </h3>
-                        <p> {{comentario.mensaje }}</p>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="alert alert-danger" role="alert">
-                    Todavia no hay comentarios registrados!
-                </div>
-            {% endif %}
-        </div>
-    </div>
-    <div class="row abs-center ">
-        <div class="col-lg-5 bg-light rounded ">
-            <br>
-            <h2>Que opinas, ¿te gusto?</h2> 
-            <form method = "POST" action = "" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="abs-center"><button type="submit" class=" btn btn-primary">Guardar</button></div>
-            </form>
-        </div>
     </div>
 </div>
 {% endblock %}

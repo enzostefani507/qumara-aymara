@@ -1,6 +1,5 @@
 from django.views.generic import ListView, DetailView
-from .models import Post, Comentario
-from .forms import ComentarioForm
+from .models import Post
 
 class PostList(ListView):
     model = Post
@@ -17,13 +16,3 @@ class PostDetail(DetailView):
     template_name = 'post/detalle.html'
     model = Post
     context_object_name = 'post'
-    form_class = ComentarioForm
-
-    def post(self):
-        self.object = self.get_object()
-        form = self.get_form()
-        self.success_url = '/post/%d' % self.object.id
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
