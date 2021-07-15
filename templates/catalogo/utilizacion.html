@@ -1,0 +1,25 @@
+<h1>¿Como puedes utilizarlo?</h1>
+{% if util %}
+<table class="table">
+    <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for post in util %}
+        <tr>
+        <td>{{ post.titulo }}</td>
+        <td>{{ post.descripcion }}</td>
+        <td><a href="{% url 'detalle_post' pk=post.id %}"><button type="button" class="btn btn-secondary">Ver</button></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% else %}
+    <div class="alert alert-secondary" role="alert">
+    Todavia no hemos publicado nada sobre {{ producto.nombre }} en nuestro <a href="{% url 'posts' %}">blog</a>
+    </div>
+{% endif %}

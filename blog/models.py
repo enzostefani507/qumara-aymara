@@ -11,13 +11,11 @@ class Comentario(models.Model):
         null = False,
         blank = False,
     )
-
     mensaje = models.CharField(
         max_length = 500,
         null = False,
         blank = False,
     )
-
     def __str__(self):
         return self.nombre + str(self.id)
 
