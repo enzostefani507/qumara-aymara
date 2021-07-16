@@ -1,6 +1,7 @@
 from catalogo.models import Producto
 from django.db import models
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 def fecha_actual():
     return timezone.now().strftime("%d/%m/%Y")
@@ -37,7 +38,6 @@ class Post(models.Model):
         blank = False,
         editable = True
     )
-    
     fecha_creacion = models.CharField(
         default = fecha_actual(),
         max_length=50,
@@ -46,7 +46,11 @@ class Post(models.Model):
     ingredientes = models.ManyToManyField(
         Producto, 
     )
-    content = models.TextField()
+    content = RichTextField(
+        null = False,
+        blank = False,
+        editable = True
+    )
 
 
 
