@@ -6,7 +6,8 @@
         <img style="  height: 15rem; width: 15rem;" src={{ producto.imagen }}>
     </div>
     <div class="col-md-6">
-      <h1>{{producto.nombre }}</h1>
+      <h1>{{ producto.nombre }}</h1>
+      <h3>{{ producto.marca }}</h3>
       <hr>
       <p>{{ producto.comentario }}</p>
       {% if producto.en_stock_actual %}
