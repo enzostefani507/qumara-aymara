@@ -28,7 +28,7 @@ class Producto(models.Model):
     comentario = models.CharField(
         max_length = 500,
         null = False,
-        blank = False,
+        blank = True,
     )
     def __str__(self) -> str:
         return self.nombre
