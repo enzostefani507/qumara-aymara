@@ -6,13 +6,16 @@
             <h1>Nustros productos </h1>
             <div class="row row-cols-2 row-cols-md-4">
                 {% for producto in productos_list %}
-                <div class="col mb-4">
-                    <div class="card" style="height: 18rem;">
+                <div class="col mb-2">
+                    <div class="card catalogo-item-list">
                         <img src= "{{ producto.imagen }}" class="card-img-top" alt="las palmas chaco dietetica" style="height:10rem ;width:85%; align-self: center;">
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ producto.nombre }}</h5>
-                            <a type="button" href="{% url 'producto_detalle' pk=producto.id %}" class="btn btn-secondary">Ver</a>
+                            <h5 class="card-title" style="min-height: 30px">{{ producto.nombre }}</h5>
+                            <div>
+                                <a type="button" href="{% url 'producto_detalle' pk=producto.id %}" class="btn btn-secondary">Ver</a>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                 {% endfor %}
