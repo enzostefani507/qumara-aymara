@@ -1,6 +1,12 @@
 language: python
 python:
-    - 3.8
+    - "3.8"
+env:
+  - SECRET_KEY = $SECRET_KEY
+  - DATABASE_URL = $DATABASE_URL
+  - DEBUG_COLLECTSTATIC = $DEBUG_COLLECTSTATIC
+  - DISABLE_COLLECTSTATIC = $DISABLE_COLLECTSTATIC
+  - HEROKU_API_KEY = $HEROKU_API_KEY
 services:
     - postgresql
 install:
