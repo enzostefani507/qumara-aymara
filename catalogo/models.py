@@ -1,6 +1,12 @@
 from django.db import models
 
 class Producto(models.Model):
+    marca = models.CharField(
+        max_length = 50,
+        null = False,
+        blank = True,
+        editable = True,
+    )
     nombre = models.CharField(
         max_length = 20,
         null = False,
