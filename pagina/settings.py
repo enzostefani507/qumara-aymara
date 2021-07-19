@@ -2,10 +2,10 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url 
-
+from django.urls import reverse_lazy
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['qumara-aymara.herokuapp.com','qumaraaymara.com.ar','*']
 INSTALLED_APPS = [
     'admin_interface',
@@ -88,4 +88,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 django_heroku.settings(locals())

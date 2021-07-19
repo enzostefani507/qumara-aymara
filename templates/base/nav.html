@@ -16,5 +16,27 @@
           <a class="nav-link" href="{% url 'posts' %}">Blog</a>
         </li>
       </ul>
+      {% if not user.is_authenticated %}
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span class="fas fa-user"></span>Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><span class="fas fa-sign-in-alt"></span>Iniciar Sesión</a>
+          </li>
+        </ul>
+      {% else %}
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <strong>Hola, {{ user.username }}</strong>
+            </a>
+          </li>
+          <a class="nav-link" href="{% url 'logout' %}">
+              Cerrar Sesión
+            </a>
+          </li>
+        </ul>
+      {% endif %}
     </div>
 </nav>
