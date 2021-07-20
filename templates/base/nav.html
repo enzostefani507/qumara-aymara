@@ -19,21 +19,17 @@
       {% if not user.is_authenticated %}
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="fas fa-user"></span>Registro</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}"><span class="fas fa-sign-in-alt"></span>Iniciar Sesión</a>
-          </li>
+            <a class="nav-link btn btn-success" href="{% url 'login' %}"><span class=" text-white">Iniciar Sesión</span></a>          </li>
         </ul>
       {% else %}
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <strong>Hola, {{ user.username }}</strong>
+            <a class="btn btn-secondary nav-link" href="{% url 'perfil' pk=user.id %}">
+              <strong class="text-white">Hola, {{ user.username }}</strong>
             </a>
           </li>
-          <a class="nav-link" href="{% url 'logout' %}">
-              Cerrar Sesión
+          <a class="nav-link btn btn-danger ml-3" href="{% url 'logout' %}">
+              <strong class="text-white">Cerrar Sesión</strong>
             </a>
           </li>
         </ul>

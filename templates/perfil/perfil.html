@@ -1,1 +1,41 @@
-<h1>hola</h1>
+{% include "base/index.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mi_perfil" >
+  <div class="row abs-center">
+    <div class="col-sm-4 m-4 text-center">
+      <img style="width:10rem;height:10rem;" src="https://image.flaticon.com/icons/png/512/64/64572.png">
+      <h1 class="display-4">mi Perfil</h1>
+      <hr>
+      <h3  class="font-weight-bold">Nombre de usuario</h3>
+      {{ user.username }}
+    </div>
+    <div class="col-sm-4 m-4 text-center">
+      <div class="border">
+        <h3  class="font-weight-bold">Email</h3>
+        {% if user.email %}
+          {{ user.email }}
+        {% else %}
+          <p>No tenemos un mail registrado</p>
+        {% endif %}
+        <h3  class="font-weight-bold">Nombre</h3>
+        {% if user.first_name %}
+          {{ user.first_name }}
+        {% else %}
+          <p>No tenemos tu nombre registrado</p>
+        {% endif %}
+        <h3  class="font-weight-bold">Apelido</h3>
+        {% if user.last_name %}
+          {{ user.last_name }}
+        {% else %}
+          <p>No tenemos tu apellido registrado</p>
+        {% endif %}
+      </div>
+      <br>
+      <div class="alert alert-warning" role="alert">        
+        Proximamente podras ver nuevas funcionalidades disponible con tu cuenta!
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
