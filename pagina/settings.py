@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'home',
     'catalogo',
     'blog',
+    'perfil',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'
@@ -91,3 +92,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 django_heroku.settings(locals())
+AUTH_USER_MODEL = 'perfil.User'
