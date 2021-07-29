@@ -1,1 +1,36 @@
-<h2>hola</h2>
+{% include "base/index.html" %}
+{% block content %}
+    <div class="container mis_favoritos">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 class="display-4">⭐Mis Favoritos</h1>
+            </div>
+            <div class="col-sm-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tituo</th>
+                            <th>Categoria</th>
+                            <th>Descripcion</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for favorito in object_list.all %}
+                        <tr>
+                        <td>{{ favorito.titulo }}</td>
+                        <td>{{ favorito.categoria }}</td>
+                        <td>{{ favorito.descripcion }}</td>
+                        <td><a href="{% url 'detalle_post' pk=favorito.id %}"><button type="button" class="btn btn-secondary">Ver</button></a></td>
+                        </tr>
+                        {% empty %}        
+                        <div class="alert alert-secondary" role="alert">
+                            Aun no tienes ningun post en favoritos 😢
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>        
+            </div>
+        </div>
+    </div>
+{% endblock %}

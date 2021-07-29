@@ -1,5 +1,4 @@
 {% include "base/index.html" %}
-{% load crispy_forms_tags %}
 {% block content %}
 <div class="container mi_perfil" >
   <div class="row abs-center">
@@ -32,10 +31,7 @@
         {% endif %}
       </div>
       <br>
-      <div class="alert alert-warning" role="alert">        
-        Proximamente podras ver nuevas funcionalidades disponible con tu cuenta!
-      </div>
-      {% include "perfil/post_favoritos.html" %}
+      <a type="button" class="btn btn-secondary" href="{% url 'mis_favoritos' %}">⭐Post favoritos</a>
     </div>
   </div>
 </div>

@@ -43,5 +43,10 @@
     align-items: center;
     justify-content: center;
     min-height: 50vh;
-    margin-top: 15vh;
+    margin-top: 2.5vh;
 } 
+
+.mis_favoritos{
+    min-height: 50vh;
+    margin-top: 2.5vh;
+}

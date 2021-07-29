@@ -62,9 +62,8 @@ class Usuario(AbstractUser):
         verbose_name='Correo electronico',
         unique=True,
     )
-    post_favoritos = models.ForeignKey(
+    post_favoritos = models.ManyToManyField(
         Post,
-        on_delete=CASCADE,
         null=True,
         blank=True,
     )
