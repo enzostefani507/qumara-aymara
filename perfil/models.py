@@ -2,6 +2,8 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
+from blog.models import Post
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None):
@@ -59,6 +61,12 @@ class Usuario(AbstractUser):
     email = models.EmailField(
         verbose_name='Correo electronico',
         unique=True,
+    )
+    post_favoritos = models.ForeignKey(
+        Post,
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
     )
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'email'
