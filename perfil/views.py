@@ -1,6 +1,7 @@
+from perfil.models import Usuario
 from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic.detail import DetailView
-from django.contrib.auth.models import User
+from .models import Usuario
 from django.urls import reverse_lazy
 from . import forms
 
@@ -14,7 +15,7 @@ class LoginUsuario(LoginView):
 
 class miPerfil(DetailView):    
     template_name = 'perfil/perfil.html'
-    model = User
+    model = Usuario
 
     def get_queryset(self, *args, **kwargs):
-        return User.objects.filter(pk=self.request.user.id)
+        return Usuario.objects.filter(pk=self.request.user.id)

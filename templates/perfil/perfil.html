@@ -4,7 +4,7 @@
 <div class="container mi_perfil" >
   <div class="row abs-center">
     <div class="col-sm-4 m-4 text-center">
-      <img style="width:10rem;height:10rem;" src="https://image.flaticon.com/icons/png/512/64/64572.png">
+      <img style="width:10rem;height:10rem;" src="{{ user.foto.url }}">
       <h1 class="display-4">mi Perfil</h1>
       <hr>
       <h3  class="font-weight-bold">Nombre de usuario</h3>
@@ -35,6 +35,7 @@
       <div class="alert alert-warning" role="alert">        
         Proximamente podras ver nuevas funcionalidades disponible con tu cuenta!
       </div>
+      {% include "perfil/post_favoritos.html" %}
     </div>
   </div>
 </div>

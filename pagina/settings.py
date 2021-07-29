@@ -1,8 +1,8 @@
 from pathlib import Path
 import os
 import django_heroku
-import dj_database_url 
-from django.urls import reverse_lazy
+import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'home',
     'catalogo',
     'blog',
-    'perfil',
+    'perfil'
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'
@@ -52,11 +52,12 @@ TEMPLATES = [
         },
     },
 ]
+
 WSGI_APPLICATION = 'pagina.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db_1.sqlite3',
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
@@ -80,16 +81,18 @@ USE_L10N = True
 USE_TZ = False
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-django_heroku.settings(locals())
-AUTH_USER_MODEL = 'perfil.User'
+AUTH_USER_MODEL = 'perfil.Usuario'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#django_heroku.settings(locals())

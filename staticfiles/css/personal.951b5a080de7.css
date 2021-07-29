@@ -1,0 +1,47 @@
+.producto-detalle{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+    align-items: center;
+    text-align: center;
+}
+
+.catalogo-full{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+}
+
+.blog-full{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+}
+
+.posts-full{
+    min-height: 85vh;
+    margin-top: 2.5vh;
+}
+
+.footer{
+    width: 100%;
+    position:relative;
+    bottom: 0;
+}
+
+.redes-nav{
+    max-height: 20px;
+}
+
+.autenticacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin-top: 15vh;
+}
+
+.mi_perfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin-top: 15vh;
+} 
