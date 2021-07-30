@@ -1,16 +1,33 @@
+from django import forms
 from perfil.models import Usuario
 from django.contrib.auth.views import LoginView,LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login
+from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
-from . import forms
+from perfil.forms import SignInForm,LoginForm
+from django.shortcuts import  render, redirect
 from blog.models import Post
+
+def register_request(request):
+	if request.method == "POST":
+		form = SignInForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("home")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = SignInForm()
+	return render (request=request, template_name="perfil/registro.html", context={"form":form})
+
 class LogoutUsuario(LogoutView):
     success_url = 'home'
 
 class LoginUsuario(LoginView):
-    form_class = forms.LoginForm
+    form_class = LoginForm
     template_name = 'perfil/login.html'
     success_url = reverse_lazy('')
 

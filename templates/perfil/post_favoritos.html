@@ -6,12 +6,14 @@
                 <h1 class="display-4">⭐Mis Favoritos</h1>
             </div>
             <div class="col-sm-12">
+                {% if favoritos %}
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Tituo</th>
                             <th>Categoria</th>
                             <th>Descripcion</th>
+                            <th>Ingredientes</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -19,17 +21,22 @@
                         {% for favorito in object_list.all %}
                         <tr>
                         <td>{{ favorito.titulo }}</td>
-                        <td>{{ favorito.categoria }}</td>
+                        <td>{{ favorito.cateogoria }}</td>
                         <td>{{ favorito.descripcion }}</td>
-                        <td><a href="{% url 'detalle_post' pk=favorito.id %}"><button type="button" class="btn btn-secondary">Ver</button></a></td>
-                        </tr>
-                        {% empty %}        
-                        <div class="alert alert-secondary" role="alert">
-                            Aun no tienes ningun post en favoritos 😢
-                        </div>
+                        <td>        
+                            {% for ingrediente in favorito.ingredientes.all %}
+                                <ul>{{ ingrediente }}</ul>                             
+                            {% endfor %}
+                        </td>
+                        <td><a href="{% url 'detalle_post' pk=favorito.id %}"><button type="button" class="btn btn-secondary">Ver</button></a></td>    
                     {% endfor %}
                     </tbody>
-                </table>        
+                </table>
+                {% else %}  
+                <div class="alert alert-secondary text-center" role="alert">
+                    Aun no tienes ningun post en favoritos 😢
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

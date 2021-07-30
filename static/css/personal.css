@@ -38,6 +38,17 @@
     margin-top: 15vh;
 }
 
+.registro {
+    align-items: center;
+    min-height: 85vh;
+}
+
+.login {
+    align-items: center;
+    min-height: 85vh;
+    margin-top: 5vh;
+}
+
 .mi_perfil{
     display: flex;
     align-items: center;
@@ -50,3 +61,9 @@
     min-height: 50vh;
     margin-top: 2.5vh;
 }
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

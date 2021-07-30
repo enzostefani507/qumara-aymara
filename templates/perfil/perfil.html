@@ -2,15 +2,14 @@
 {% block content %}
 <div class="container mi_perfil" >
   <div class="row abs-center">
-    <div class="col-sm-4 m-4 text-center">
+    <div class="col-sm-4 m-3 text-center">
       <img style="width:10rem;height:10rem;" src="{{ user.foto.url }}">
       <h1 class="display-4">mi Perfil</h1>
       <hr>
       <h3  class="font-weight-bold">Nombre de usuario</h3>
       {{ user.username }}
     </div>
-    <div class="col-sm-4 m-4 text-center">
-      <div class="border">
+    <div class="col-sm-6 m-3 pt-3 pb-3 text-center border ">
         <h3  class="font-weight-bold">Email</h3>
         {% if user.email %}
           {{ user.email }}
@@ -28,11 +27,10 @@
           {{ user.last_name }}
         {% else %}
           <p>No tenemos tu apellido registrado</p>
-        {% endif %}
-      </div>
+        {% endif %}  
       <br>
       <a type="button" class="btn btn-secondary" href="{% url 'mis_favoritos' %}">⭐Post favoritos</a>
-    </div>
+    </div>    
   </div>
 </div>
 {% endblock %}
