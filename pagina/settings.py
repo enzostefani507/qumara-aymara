@@ -95,4 +95,14 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-#django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND  
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST_PASSWORD = 'com5topInfo'  
+EMAIL_HOST_USER = 'amadamascota57@gmail.com'  
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True 
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+django_heroku.settings(locals())

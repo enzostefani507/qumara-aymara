@@ -42,13 +42,15 @@ class SignInForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
-	    model = Usuario
-	    fields = ("username", "email", "password1", "password2")
+        model = Usuario
+        fields = ("username", "email", "password1", "password2")
 
     
     def save(self, commit=True):
-	    user = super(SignInForm, self).save(commit=False)
-	    user.email = self.cleaned_data['email']
-	    if commit:
-		    user.save()
-	    return user
+        user = super(SignInForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        if user.is_active:
+            print('esta activado')
+        return user

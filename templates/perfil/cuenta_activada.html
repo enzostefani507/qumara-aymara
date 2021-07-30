@@ -1,0 +1,11 @@
+{% include "base/index.html" %}
+{% block content %}
+<div class="container pt-5 abs-center">
+    <img src="https://i.imgur.com/HRjxOS2.png" style="width:25%">
+</div>
+<div class="container text-center">
+    <h1>Genial!</h1>
+    <p>Ya se activo tu cuenta.</p>
+    <p>Inicia sesion haciendo <a href="{% url 'login' %}">click aquí</a></p>
+</div>
+{% endblock %}
