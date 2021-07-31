@@ -1,7 +1,0 @@
-{% autoescape off %}
-<img class="mb-4" src="https://i.imgur.com/mQgOrW3.png" alt="logo q'umara aymara" style="width:16rem">      
-Hola {{ user.username }}!,  
-Haz click en el siguiente enlace para confirmar el alta de tu cuenta de Q’umara Aymara,
-http://{{ domain }}{% url 'activate' uidb64=uid token=token %}  
-Si no has sido tú, solo ignora este mensaje.
-{% endautoescape %}

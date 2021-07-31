@@ -1,23 +1,21 @@
 from django import forms
-from django.http.response import HttpResponse
+from django.core.mail.message import EmailMultiAlternatives
 from perfil.models import Usuario
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import login
-from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from perfil.forms import SignInForm, LoginForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from blog.models import Post
 from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.contrib.auth import get_user_model
+from django.template.loader import render_to_string
 
 UserModel = get_user_model()
 
@@ -33,16 +31,19 @@ def register_request(request):
             user.save()
             current_site = get_current_site(request)
             mail_subject = 'Q\'umara Aymara - Activa tu cuenta!'
-            message = render_to_string('perfil/acc_active_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
+            html_message = render_to_string(
+                'perfil/correo.html', 
+                {
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': default_token_generator.make_token(user),
             })
             to_email = form.cleaned_data.get('email')
-            email = EmailMessage(
-                mail_subject, message, to=[to_email]
+            email = EmailMultiAlternatives(
+                mail_subject, html_message, to=[to_email]
             )
+            email.attach_alternative(html_message,"text/html")
             email.send()
             return render (request, 'perfil/revisa_email.html', {'form': form,'title':'Q\'umara Aymara - Confirma tu email'})
         else:
