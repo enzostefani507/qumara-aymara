@@ -98,7 +98,7 @@ class miFavoritos(LoginRequiredMixin, ListView):
     login_url = 'login'
 
     def get_context_data(self, **kwargs):
-        context = super(miFavoritos).get_context_data(**kwargs)
+        context = super(miFavoritos,self).get_context_data(**kwargs)
         usuario = Usuario.objects.filter(pk=self.request.user.id)[0]
         context['object_list'] = usuario.post_favoritos
         context['title'] = 'Q\'umara Aymara - Favoritos'

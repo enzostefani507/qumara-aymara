@@ -1,12 +1,12 @@
 {% include "base/index.html" %}
 {% block content %}
     <div class="container mis_favoritos">
-        <div class="row">
+        <div class="row ">
             <div class="col-sm-6">
                 <h1 class="display-4">⭐Mis Favoritos</h1>
             </div>
             <div class="col-sm-12">
-                {% if favoritos %}
+                {% if object_list.all|length > 0%}
                 <table class="table">
                     <thead>
                         <tr>
