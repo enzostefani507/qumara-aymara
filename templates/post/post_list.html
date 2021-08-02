@@ -10,7 +10,7 @@
                         <div class="card-body d-flex flex-column align-items-start">
                         <strong class="d-inline-block mb2    text-primary">{{ post.cateogoria }}</strong>
                         <h3 class="mb-0">
-                            <a class="text-dark" href="{% url 'detalle_post' pk=post.id %}">{{ post.titulo }}</a>
+                            <a class="text-dark">{{ post.titulo }}</a>
                         </h3>
                         <div class="mb-1 text-muted">{{ post.fecha_creacion }}</div>
                         <p class="card-text mb-auto">{{ post.descripcion }}</p>
