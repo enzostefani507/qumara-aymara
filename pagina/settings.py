@@ -1,12 +1,12 @@
 from pathlib import Path
 import os
-import django_heroku
-import dj_database_url 
-
+#import django_heroku
+import dj_database_url
+from decouple import config
+SECRET_KEY = config('$SECRET_KEY')
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = False
-ALLOWED_HOSTS = ['qumara-aymara.herokuapp.com','qumaraaymara.com.ar','*']
+DEBUG = config('DEBUG', cast=bool)
+ALLOWED_HOSTS = ['www.qumaraaymara.com.ar','qumaraaymara.com.ar','qumara-aymara.herokuapp.com']
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'home',
     'catalogo',
     'blog',
+    'perfil'
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'
@@ -51,11 +52,12 @@ TEMPLATES = [
         },
     },
 ]
+
 WSGI_APPLICATION = 'pagina.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db_1.sqlite3',
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
@@ -79,13 +81,28 @@ USE_L10N = True
 USE_TZ = False
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-django_heroku.settings(locals())
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+AUTH_USER_MODEL = 'perfil.Usuario'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND  
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST_PASSWORD =   config('EMAIL_PW')
+EMAIL_HOST_USER = config('EMAIL')  
+EMAIL_PORT = config('EMAIL_PORT',cast=int)  
+EMAIL_USE_TLS = True 
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#django_heroku.settings(locals())

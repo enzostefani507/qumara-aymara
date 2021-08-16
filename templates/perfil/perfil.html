@@ -1,0 +1,36 @@
+{% include "base/index.html" %}
+{% block content %}
+<div class="container mi_perfil" >
+  <div class="row abs-center">
+    <div class="col-sm-4 m-3 text-center">
+      <img style="width:10rem;height:10rem;" src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png">
+      <h1 class="display-4">mi Perfil</h1>
+      <hr>
+      <h3  class="font-weight-bold">Nombre de usuario</h3>
+      {{ user.username }}
+    </div>
+    <div class="col-sm-6 m-3 pt-3 pb-3 text-center border ">
+        <h3  class="font-weight-bold">Email</h3>
+        {% if user.email %}
+          {{ user.email }}
+        {% else %}
+          <p>No tenemos un mail registrado</p>
+        {% endif %}
+        <h3  class="font-weight-bold">Nombre</h3>
+        {% if user.first_name %}
+          {{ user.first_name }}
+        {% else %}
+          <p>No tenemos tu nombre registrado</p>
+        {% endif %}
+        <h3  class="font-weight-bold">Apelido</h3>
+        {% if user.last_name %}
+          {{ user.last_name }}
+        {% else %}
+          <p>No tenemos tu apellido registrado</p>
+        {% endif %}  
+      <br>
+      <a type="button" class="btn btn-secondary mt-2" href="{% url 'mis_favoritos' %}">⭐Post favoritos</a>
+    </div>    
+  </div>
+</div>
+{% endblock %}

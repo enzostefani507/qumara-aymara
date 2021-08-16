@@ -16,5 +16,23 @@
           <a class="nav-link" href="{% url 'posts' %}">Blog</a>
         </li>
       </ul>
+      {% if not user.is_authenticated %}
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link btn btn-secondary" href="{% url 'login' %}"><span class=" text-white">Iniciar Sesión</span></a>          </li>
+        </ul>
+      {% else %}
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="btn btn-secondary nav-link" href="{% url 'perfil' pk=user.id %}">
+              <strong class="text-white">Hola, {{ user.username }}</strong>
+            </a>
+          </li>
+          <a class="nav-link btn btn-danger ml-3" href="{% url 'logout' %}">
+              <strong class="text-white">Cerrar Sesión</strong>
+            </a>
+          </li>
+        </ul>
+      {% endif %}
     </div>
 </nav>

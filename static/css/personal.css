@@ -29,3 +29,46 @@
 .redes-nav{
     max-height: 20px;
 }
+
+.autenticacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin-top: 15vh;
+}
+
+.registro {
+    align-items: center;
+    min-height: 85vh;
+}
+
+.login {
+    align-items: center;
+    min-height: 85vh;
+    margin-top: 5vh;
+}
+
+.mi_perfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin-top: 2.5vh;
+} 
+
+.mis_favoritos{
+    min-height: 50vh;
+    margin-top: 2.5vh;
+}
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrado{
+    display:block;
+    margin:auto;
+}

@@ -12,7 +12,7 @@
     {% for post in util %}
         <tr>
         <td>{{ post.titulo }}</td>
-        <td>{{ post.descripcion }}</td>
+        <td >{{ post.descripcion }}</td>
         <td><a href="{% url 'detalle_post' pk=post.id %}"><button type="button" class="btn btn-secondary">Ver</button></a></td>
         </tr>
         {% endfor %}
