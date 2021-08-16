@@ -1,12 +1,12 @@
 from pathlib import Path
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
-
+from decouple import config
+SECRET_KEY = config('SECRET_KEY')
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = True
-ALLOWED_HOSTS = ['qumara-aymara.herokuapp.com','qumaraaymara.com.ar','*']
+DEBUG = config('DEBUG', cast=bool)
+ALLOWED_HOSTS = ['www.qumaraaymara.com.ar','qumaraaymara.com.ar','qumara-aymara.herokuapp.com']
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
@@ -99,10 +99,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND  
 EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_PASSWORD = 'com5topInfo'  
-EMAIL_HOST_USER = 'amadamascota57@gmail.com'  
-EMAIL_PORT = 587  
+EMAIL_HOST_PASSWORD =   config('EMAIL_PW')
+EMAIL_HOST_USER = config('EMAIL')  
+EMAIL_PORT = config('EMAIL_PORT',cast=int)  
 EMAIL_USE_TLS = True 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

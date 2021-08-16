@@ -11,10 +11,10 @@
                         <div class="card-body d-flex flex-column align-items-start">
                         <strong class="d-inline-block mb2  text-primary">{{ post.cateogoria }}</strong>
                         <h3 class="mb-0">
-                            <a class="text-dark" href="{% url 'detalle_post' post.id %}">{{ post.titulo }}</a>
+                            <a class="text-dark" style="width: 60px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" href="{% url 'detalle_post' post.id %}">{{ post.titulo }}</a>
                         </h3>
                         <div class="mb-1 text-muted">{{ post.fecha_creacion }}</div>
-                        <p class="card-text mb-auto">{{ post.descripcion }}</p>
+                        <p class="card-text mb-auto" >{{ post.descripcion }}</p>
                         </div>
                         <img class="card-img-right flex-auto d-none d-md-block" src="{{ post.imagen }}" alt="Card image cap" style="width: 200px;height: 200px;">
                     </div>
